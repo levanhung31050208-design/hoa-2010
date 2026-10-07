@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20/10 dành cho Hoa 🌷</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8f0);
+    color: #633b46;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    padding: 30px 20px 60px;
+}
+
+h1 {
+    font-size: 34px;
+    color: #d85b7f;
+    margin-top: 25px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+/* HỘP QUÀ */
+.gift {
+    width: 180px;
+    height: 150px;
+    margin: 40px auto 20px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift:hover {
+    transform: scale(1.05);
+}
+
+.box {
+    position: absolute;
+    width: 180px;
+    height: 110px;
+    bottom: 0;
+    background: #e96b91;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(180,80,110,0.25);
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    left: 70px;
+    width: 40px;
+    height: 110px;
+    background: #ffd0dc;
+}
+
+.lid {
+    position: absolute;
+    width: 200px;
+    height: 35px;
+    left: -10px;
+    top: 25px;
+    background: #d9557e;
+    border-radius: 8px;
+    z-index: 2;
+    transition: transform 1s;
+}
+
+.lid::after {
+    content: "";
+    position: absolute;
+    left: 80px;
+    width: 40px;
+    height: 35px;
+    background: #ffd0dc;
+}
+
+.gift.open .lid {
+    transform: translateY(-100px) rotate(-8deg);
+}
+
+.gift-text {
+    font-size: 17px;
+    color: #9b5067;
+    margin-bottom: 20px;
+}
+
+/* HOA */
+.flower {
+    font-size: 90px;
+    margin: 20px 0;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1.5s ease;
+}
+
+.flower.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* NỘI DUNG */
+.message {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+    display: none;
+}
+
+.message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message h2 {
+    color: #d85b7f;
+    font-size: 27px;
+}
+
+.message p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* ẢNH */
+.photo {
+    width: 90%;
+    max-width: 480px;
+    margin: 25px auto;
+    border-radius: 18px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(120,60,80,0.25);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1.2s ease;
+}
+
+.photo.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.final {
+    margin-top: 45px;
+    padding: 30px 15px;
+}
+
+.final h2 {
+    color: #d84f78;
+    font-size: 29px;
+}
+
+.final .heart {
+    font-size: 45px;
+}
+
+.small {
+    font-size: 15px;
+    color: #98717b;
+}
+
+button {
+    border: none;
+    background: #d85b7f;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: #c9476b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌷 Chúc mừng 20/10 🌷</h1>
+
+    <div class="subtitle">
+        Gửi đến Hoa xinh ❤️
+    </div>
+
+    <!-- HỘP QUÀ -->
+    <div class="gift" id="gift" onclick="openGift()">
+        <div class="lid"></div>
+        <div class="box"></div>
+    </div>
+
+    <div class="gift-text" id="giftText">
+        🎁 Có một món quà nhỏ dành cho em...<br>
+        Bấm vào hộp quà để mở nhé ❤️
+    </div>
+
+    <!-- HOA -->
+    <div class="flower" id="flower">
+        🌹
+    </div>
+
+    <!-- LỜI CHÚC -->
+    <div class="message" id="message1">
+
+        <h2>🌸 Chúc Hoa ngày 20/10 thật vui nhé! 🌸</h2>
+
+        <p>
+            Chúc em luôn xinh đẹp, luôn vui vẻ
+            và mỗi ngày đều có thật nhiều điều khiến em mỉm cười. ❤️
+        </p>
+
+        <p>
+            Mong những điều tốt đẹp nhất sẽ luôn đến với em,
+            công việc thuận lợi và cuộc sống luôn có thật nhiều niềm vui. 🌷
+        </p>
+
+        <!-- ẢNH 1 -->
+        <img src="hoa1.jpg" class="photo" id="photo1">
+
+    </div>
+
+    <!-- LỜI NHẮN THỨ 2 -->
+    <div class="message" id="message2">
+
+        <p>
+            Anh không biết món quà nhỏ này có đủ đặc biệt không,
+            nhưng anh đã dành một chút tâm ý để làm nó cho em. ❤️
+        </p>
+
+        <!-- ẢNH 2 -->
+        <img src="hoa2.jpg" class="photo" id="photo2">
+
+    </div>
+
+    <!-- KẾT -->
+    <div class="message final" id="final">
+
+        <div class="heart">🌷❤️🌷</div>
+
+        <h2>Hoa xinh nha ❤️</h2>
+
+        <p>
+            20/10 thật vui và hạnh phúc nhé.
+        </p>
+
+        <p>
+            <b>Anh mong sẽ có cơ hội được ở bên em.</b>
+        </p>
+
+        <p class="small">
+            From Hùng ❤️
+        </p>
+
+    </div>
+
+</div>
+
+<!-- NHẠC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openGift() {
+
+    const gift = document.getElementById("gift");
+    const flower = document.getElementById("flower");
+    const giftText = document.getElementById("giftText");
+    const music = document.getElementById("music");
+
+    gift.classList.add("open");
+
+    giftText.innerHTML = "🌷 Một chút hoa dành tặng em ❤️";
+
+    setTimeout(function() {
+        flower.classList.add("show");
+    }, 500);
+
+    setTimeout(function() {
+        document.getElementById("message1").classList.add("show");
+        document.getElementById("photo1").classList.add("show");
+    }, 1500);
+
+    setTimeout(function() {
+        document.getElementById("message2").classList.add("show");
+        document.getElementById("photo2").classList.add("show");
+    }, 4000);
+
+    setTimeout(function() {
+        document.getElementById("final").classList.add("show");
+    }, 6500);
+
+    music.play().catch(function() {
+        console.log("Nhạc cần được bật thủ công.");
+    });
+
+}
+
+</script>
+
+</body>
+</html>
